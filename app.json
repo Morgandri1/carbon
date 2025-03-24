@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "carbon-fe-new",
+    "slug": "carbon-fe-new",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "carbon",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.morgandri1.carbon"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      ["react-native-libsodium", {}]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
