@@ -6,7 +6,8 @@ import * as SecureStore from 'expo-secure-store';
 
 export default function RegisterScreen() {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [pubkey, setPubkey] = useState('');
+  const [privKey, setPrivkey] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
@@ -20,14 +21,13 @@ export default function RegisterScreen() {
         return;
       }
 
-      // You'll implement the actual registration logic
       const authData = {
         name,
-        email,
-        // Store any other relevant auth data
+        pubkey,
+        privKey,
+        password,
       };
 
-      // Store auth data securely
       await SecureStore.setItemAsync('auth', JSON.stringify(authData));
       
       // Navigate to main app
@@ -52,23 +52,10 @@ export default function RegisterScreen() {
             <User size={20} color="#8E99A4" />
             <TextInput
               style={styles.input}
-              placeholder="Full Name"
+              placeholder="Username"
               placeholderTextColor="#8E99A4"
               value={name}
               onChangeText={setName}
-            />
-          </View>
-
-          <View style={styles.inputContainer}>
-            <Mail size={20} color="#8E99A4" />
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              placeholderTextColor="#8E99A4"
-              value={email}
-              onChangeText={setEmail}
-              autoCapitalize="none"
-              keyboardType="email-address"
             />
           </View>
 

@@ -5,7 +5,7 @@ import { Mail, Lock } from 'lucide-react-native';
 import * as SecureStore from 'expo-secure-store';
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -15,7 +15,7 @@ export default function LoginScreen() {
       
       // You'll implement the actual login logic
       const authData = {
-        email,
+        name: username,
         // Store any other relevant auth data
       };
 
@@ -44,12 +44,11 @@ export default function LoginScreen() {
             <Mail size={20} color="#8E99A4" />
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder="Username"
               placeholderTextColor="#8E99A4"
-              value={email}
-              onChangeText={setEmail}
+              value={username}
+              onChangeText={setUsername}
               autoCapitalize="none"
-              keyboardType="email-address"
             />
           </View>
 
